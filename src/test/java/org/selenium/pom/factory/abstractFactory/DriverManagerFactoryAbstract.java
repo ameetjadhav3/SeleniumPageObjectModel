@@ -9,13 +9,13 @@ public class DriverManagerFactoryAbstract {
 
     public static DriverManagerAbstract getManager(DriverType driverType){
         switch (driverType){
-            case CHROME -> {
+            case CHROME : {
                 return new ChromeDriverManagerAbstract();
             }
-            case FIREFOX -> {
+            case FIREFOX : {
                 return new FirefoxDriverManagerAbstract();
             }
-            default -> throw new IllegalStateException("Unexpected value: " + driverType);
+            default : throw new IllegalStateException("Unexpected value: " + driverType);
         }
     }
 }

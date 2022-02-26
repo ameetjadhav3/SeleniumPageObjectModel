@@ -11,17 +11,19 @@ public class DriverManagerOriginal {
     public WebDriver initializeDriver(String browser){
         WebDriver driver;
         switch (DriverType.valueOf(browser)) {
-            case CHROME -> {
+            case CHROME : {
                 WebDriverManager.chromedriver().cachePath("Drivers").setup();
                 //WebDriverManager.chromedriver().driverVersion("97.0.4692.71").setup();
                 driver = new ChromeDriver();
+                break;
             }
-            case FIREFOX -> {
+            case FIREFOX : {
                 WebDriverManager.firefoxdriver().cachePath("Drivers").setup();
                 driver = new FirefoxDriver();
+                break;
             }
 
-            default -> throw new IllegalStateException("Invalid browser name: " + browser);
+            default : throw new IllegalStateException("Invalid browser name: " + browser);
         }
         driver.manage().window().maximize();
 //        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));

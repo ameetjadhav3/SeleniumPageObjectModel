@@ -11,9 +11,11 @@ public class ConfigLoader {
     private ConfigLoader(){
         String env = System.getProperty("env", String.valueOf(EnvType.STAGE));
         switch (EnvType.valueOf(env)) {
-            case STAGE -> properties = PropertyUtils.propertyLoader("src/test/resources/stg_config.properties");
-            case PRODUCTION -> properties = PropertyUtils.propertyLoader("src/test/resources/prod_config.properties");
-            default -> throw new IllegalStateException("Invalid env type: " + env);
+            case STAGE : properties = PropertyUtils.propertyLoader("src/test/resources/stg_config.properties");
+            break;
+            case PRODUCTION : properties = PropertyUtils.propertyLoader("src/test/resources/prod_config.properties");
+            break;
+            default: throw new IllegalStateException("Invalid env type: " + env);
         }
     }
 
